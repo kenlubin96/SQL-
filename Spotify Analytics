@@ -77,3 +77,12 @@ SELECT  artist_name,
 FROM popularity_average_CTE
 WHERE average_popularity>=90;
 
+#8. WITH safety_average_CTE AS (
+SELECT street, AVG(safetyrating) AS average_safety
+FROM CityBikeLanes
+GROUP BY street)
+
+SELECT street, average_safety, 'Safe Lane' AS tag
+FROM safety_average_CTE
+WHERE average_safety >= 4.0; 
+
